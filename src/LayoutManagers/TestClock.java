@@ -19,83 +19,83 @@ public class TestClock {
 
    public static void main(String[] args) {
 
-       // create jframe
-       JFrame frame = new JFrame();
+       // create jfr
+       JFrame fr = new JFrame();
        // set flow layout
-       frame.setLayout(new FlowLayout());
+       fr.setLayout(new FlowLayout());
 
        // create ampm label
-       JLabel amPm = new JLabel();
+       JLabel lblAmPm = new JLabel();
        // set serif italic 36
-       amPm.setFont(new Font("Serif", Font.ITALIC, 36));
+       lblAmPm.setFont(new Font("Serif", Font.ITALIC, 36));
 
        // create jpanel
        JPanel panel = new JPanel();
        // set flow layout
        panel.setLayout(new FlowLayout());
 
-       // create hh jlabel
-       JLabel hh = new JLabel("", SwingConstants.CENTER);
+       // create lblHH jlabel
+       JLabel lblHH = new JLabel("", SwingConstants.CENTER);
        // set serif italic 36
-       hh.setFont(new Font("Serif", Font.ITALIC, 36));
+       lblHH.setFont(new Font("Serif", Font.ITALIC, 36));
 
-       // create mm jlabel
-       JLabel mm = new JLabel("", SwingConstants.CENTER);
+       // create lblMM jlabel
+       JLabel lblMM = new JLabel("", SwingConstants.CENTER);
        // set serif italic 36
-       mm.setFont(new Font("Serif", Font.ITALIC, 36));
+       lblMM.setFont(new Font("Serif", Font.ITALIC, 36));
 
-       // create ss jlabel
-       JLabel ss = new JLabel("", SwingConstants.CENTER);
+       // create lblSS jlabel
+       JLabel lblSS = new JLabel("", SwingConstants.CENTER);
        // set serif italic 36
-       ss.setFont(new Font("Serif", Font.ITALIC, 36));
+       lblSS.setFont(new Font("Serif", Font.ITALIC, 36));
 
        // set border to hour,minute and second
-       hh.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-       mm.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-       ss.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+       lblHH.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+       lblMM.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+       lblSS.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
        // set height and width of jlabel
-       hh.setPreferredSize(new Dimension(60, 50));
-       mm.setPreferredSize(new Dimension(60, 50));
-       ss.setPreferredSize(new Dimension(60, 50));
+       lblHH.setPreferredSize(new Dimension(60, 50));
+       lblMM.setPreferredSize(new Dimension(60, 50));
+       lblSS.setPreferredSize(new Dimension(60, 50));
 
        // create a function action listener to upadate time
-       Timer SimpleTimer = new Timer(1000, new ActionListener() {
+       Timer timer = new Timer(1000, new ActionListener() {
 
            @Override
            public void actionPerformed(ActionEvent e) {
                // set time to Jlabels
                // create calendar instance
                Calendar calendar = Calendar.getInstance();
-               // set calendar hour to hh jlabel
-               hh.setText(String.valueOf(calendar.get(Calendar.HOUR)));
-               // set calendar minute to mm jlabel
-               mm.setText(String.valueOf(calendar.get(Calendar.MINUTE)));
-               // set calendar second to ss jlabel
-               ss.setText(String.valueOf(calendar.get(Calendar.SECOND)));
+               // set calendar hour to lblHH jlabel
+               lblHH.setText(String.valueOf(calendar.get(Calendar.HOUR)));
+               // set calendar minute to lblMM jlabel
+               lblMM.setText(String.valueOf(calendar.get(Calendar.MINUTE)));
+               // set calendar second to lblSS jlabel
+               lblSS.setText(String.valueOf(calendar.get(Calendar.SECOND)));
                // check AM or PM
                if (calendar.get(Calendar.AM_PM) == Calendar.AM)
-                   amPm.setText("AM");
+                   lblAmPm.setText("AM");
                else
-                   amPm.setText("PM");
+                   lblAmPm.setText("PM");
 
            }
        });
        // start timer
-       SimpleTimer.start();
+       timer.start();
 
        // add jlabels to panel
-       panel.add(hh);
-       panel.add(mm);
-       panel.add(ss);
+       panel.add(lblHH);
+       panel.add(lblMM);
+       panel.add(lblSS);
 
-       // add panel and ampm label to frame
-       frame.add(panel);
-       frame.add(amPm);
+       // add panel and ampm label to fr
+       fr.add(panel);
+       fr.add(lblAmPm);
 
-       // set title and size of frame
-       frame.setTitle("Digital Clock");
-       frame.setSize(275, 175);
-       frame.show();
+       // set title and size of fr
+       fr.setTitle("Digital Clock");
+       fr.setSize(275, 175);
+       fr.show();
 
    }
 
